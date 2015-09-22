@@ -7,6 +7,10 @@ import os from 'os'
 import net from 'net'
 
 
+console.log("\n\nHeartbeat\n")
+console.log("... bmmbmmpm. \n")
+
+
 let fieldreport = {
 	hertz: "bmmbmmpm bmmbmmpm... bmmbmmpm bmmbmmpm...",
 	hostname: os.hostname(),
@@ -14,8 +18,7 @@ let fieldreport = {
 		free: os.freemem() / 1024 / 1024 + " i.e. (" + os.freemem() + ")",
 		total: os.totalmem() / 1024 / 1024 + " i.e. (" + os.totalmem() + ")",
 	},
-	network: os.networkInterfaces(),
-	env: process.env
+	network: os.networkInterfaces(),	
 }
 
 let app = koa()
@@ -28,22 +31,17 @@ app.use(function*(next) {
 	this.body.env = process.env
 })
 
-console.log("Heart goes bmmbmmpm bmmbmmpm??\n")
-console.log("\ncurl -i localhost:8080/heartbeat\n\n")
 
 
-http.createServer(app.callback()).listen(8000, () => console.log(` bmmbmpppm?  -> curl -i localhost:8000/heartbeat`))
-http.createServer(app.callback()).listen(8080, () => console.log(` bmmbmpppm?  -> curl -i localhost:8080/heartbeat`))
+
+http.createServer(app.callback()).listen(8080, () => console.log("WEB	curl -i localhost:8080/heartbeat\n"))
 
 const server = net.createServer(c => {
-    console.log('client connected');
-    c.on('end', () => {
-        console.log('client disconnected');
-    });
-    c.write('Hello. \r\n');
-    c.write(JSON.stringify(c.socket));
-    c.pipe(c);
+    console.log('client connected')
+    c.on('end', () => console.log('client disconnected'))
+    c.write('... bmmbmmpm. <3 \n')
+    c.pipe(c)
 });
 server.listen(8124, () => {
-    console.log('TCP Server bound 8124  -> telnet localhost 8124');
+    console.log('TCP	telnet localhost 8124\n')
 });
