@@ -1,0 +1,18 @@
+  from dan's bash.
+
+  155  gcloud config set project kube-weave
+  156  gcloud container clusters list
+  157  gcloud login
+  158  gcloud auth login
+  159  gcloud config set project kube-weave
+  160  gcloud container clusters list
+  161  gcloud container clusters get-credentials
+  162  gcloud config set project kube-weave
+  163  gcloud container clusters list
+  164  gcloud container clusters list
+  165  while ! gcloud container clusters list; ;do echo aww; done
+  166  while ! gcloud container clusters list; do echo aww; done
+  167  while ! gcloud container clusters list; do sleep 5; echo aww; done
+  168  gcloud config set project kube-weave
+  169  while ! gcloud container clusters list; do sleep 5; echo aww; done
+  171  gcloud container clusters list;
